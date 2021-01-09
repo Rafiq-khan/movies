@@ -40,6 +40,11 @@ Route::post('addnewvideo', 'VideoController@addnewvideo')->name('addnewvideo');
 
 Route::post('post.addnewtags', 'TagsController@addnewtags')->name('post.addnewtags');
 
+
+Route::post('updatenewtags', 'TagsController@updatenewtags')->name('updatenewtags');
+
+
+
 Route::get('settings-form/{id}', 'SettingController@settingsform')->name('settings-form');
 
 Route::get('admin.surveys.new_row', 'SettingController@settingsform')->name('admin.surveys.new_row');

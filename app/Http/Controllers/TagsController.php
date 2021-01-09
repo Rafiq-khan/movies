@@ -36,4 +36,16 @@ class TagsController extends Controller
         ]);
         return redirect()->route('tags');
     }
+
+
+    public function updatenewtags(Request $request){
+
+        $tags = LatestTags::where('id',$request->id)->first();
+        $tags->name = $request->name;
+        $tags->type = $request->type;
+        $tags->display_name = $request->display_name;
+        $tags->save();
+        return redirect()->route('tags');
+
+    }
 }
