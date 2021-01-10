@@ -43,9 +43,39 @@ Route::post('post.addnewtags', 'TagsController@addnewtags')->name('post.addnewta
 
 Route::post('updatenewtags', 'TagsController@updatenewtags')->name('updatenewtags');
 
+Route::get('news', 'LatestNewsController@recent_news')->name('news');
+
+Route::get('addnews', 'LatestNewsController@addnews')->name('addnews');
+
+Route::get('news.edit/{id}', 'LatestNewsController@editnews')->name('news.edit');
+
+Route::get('news.delete/{id}', 'LatestNewsController@deletenews')->name('news.delete');
+
+Route::post('post.addnews', 'LatestNewsController@addnewnews')->name('post.addnews');
+Route::post('post.updatenews', 'LatestNewsController@updatenews')->name('post.updatenews');
+
+
+
+
+
+Route::get('video.edit/{id}', 'VideoController@editvideo')->name('video.edit');
+
+Route::get('video.delete/{id}', 'VideoController@deletevideo')->name('video.delete');
+
+Route::post('updatevideo', 'VideoController@updatevideo')->name('updatevideo');
+
+
+
+
+
 
 
 Route::get('settings-form/{id}', 'SettingController@settingsform')->name('settings-form');
+
+
+
+
+
 
 Route::get('admin.surveys.new_row', 'SettingController@settingsform')->name('admin.surveys.new_row');
 

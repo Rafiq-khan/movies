@@ -39,5 +39,10 @@
 	<script src="{{asset('public/global_assets/js/demo_charts/pages/dashboard/light/heatmaps.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/demo_charts/pages/dashboard/light/pies.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/demo_charts/pages/dashboard/light/bullets.js')}}"></script>
+
+
+	<script src="{{asset('public/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
+	<script src="{{asset('public/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
+	<script src="{{asset('public/global_assets/js/demo_pages/form_layouts.js')}}"></script>
 	<!-- /theme JS files -->
 
