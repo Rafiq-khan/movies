@@ -82,6 +82,15 @@
 					</a>
 				</li>
 
+				<li class="nav-item">
+					<a href="{{route('news')}}" class="nav-link ">
+						<i class="icon-home4"></i>
+						<span>
+							News
+						</span>
+					</a>
+				</li>
+
 
 
 
