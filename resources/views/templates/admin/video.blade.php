@@ -4,21 +4,7 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Dashboard</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+    
 
     <!-- Main content -->
     <section class="content">
@@ -27,7 +13,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">All Video Detial Here</h3>
+                            <h3 class="card-title">Videos</h3>
 
                             <div class="card-body">
                                 <h4></h4>
@@ -40,18 +26,18 @@
 
 
 
-                        <div class="card-body">
+                        <div class="table-responsive">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th><input type="checkbox" name="all" value="all"></th>
                                         <th>Name</th>
                                         <th>Title</th>
                                         <th>Type</th>
                                         <th>Category</th>
-                                        <th>Position</th>
-                                        <th>Quality</th>
                                         <th>Approved</th>
-                                        <th>Playes</th>
+                                        <th>Plays</th>
+                                         <th>Quality</th>
                                         <th>Score</th>
                                         <th>Reports</th>
                                         <th>Season</th>
@@ -62,19 +48,30 @@
                                 <tbody>
                                     @foreach($video as $v)
                                     <tr>
-                                        <td>{{$v->name}}</td>
+                                        <td><input type="checkbox" name="video_checkboxes[]" value="{{$v->id}}"></td>
+                                        <td><img src="{{$v->thumbnail}}" style="width: 50px;height: 50px; margin-right: 10px;"> {{$v->name}}</td>
                                         <td>{{$v->title}}</td>
                                         <td>{{$v->type}}</td>
                                         <td>{{$v->category}}</td>
-                                        <td>{{$v->position}}</td>
-                                        <td>{{$v->quality}}</td>
+                                        <td>@if($v->approved==1)
+                                                <i style="color: green" class="icon-checkmark4"></i>
+                                            @else
+                                                <i style="color: red" class="icon-cross3"></i>
+                                            @endif
+                                        </td>
+                                        <td>{{'0'}}</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
                                         <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
+                                        <td>
+
+                                            <a href="{{route('video.edit',['id'=>$v->id])}}"><i class="icon-pencil5 mr-2"></i></a>
+
+                                            <a href="{{route('video.delete',['id'=>$v->id])}}" ><i class="icon-folder-remove mr-2"></i></a>
+
+                                        </td>
                                     </tr>
                                     @endforeach
 
