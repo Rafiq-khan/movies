@@ -15,6 +15,7 @@
 				</div>
 			</div>
 	<!-- Core JS files -->
+
 	<script src="{{asset('public/global_assets/js/main/jquery.min.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/main/bootstrap.bundle.min.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/plugins/loaders/blockui.min.js')}}"></script>
@@ -27,7 +28,7 @@
 	<script src="{{asset('public/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
 
-	<script src="{{asset('public/assets/js/app.js')}}"></script>
+
 	<script src="{{asset('public/global_assets/js/demo_pages/dashboard.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/demo_charts/pages/dashboard/light/streamgraph.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/demo_charts/pages/dashboard/light/sparklines.js')}}"></script>
@@ -43,6 +44,17 @@
 
 	<script src="{{asset('public/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
+
+
+	<script src="{{asset('public/global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
+	<script src="{{asset('public/global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
+	<script src="{{asset('public/global_assets/js/demo_pages/form_checkboxes_radios.js')}}"></script>
+	<script src="{{asset('public/global_assets/js/plugins/forms/tags/tokenfield.min.js')}}"></script>	
+	<script src="{{asset('public/global_assets/js/plugins/forms/tags/tagsinput.min.js')}}"></script>	
+	<script src="{{asset('public/global_assets/js/plugins/forms/inputs/formatter.min.js')}}"></script>
 	<script src="{{asset('public/global_assets/js/demo_pages/form_layouts.js')}}"></script>
+		<script src="{{asset('public/assets/js/app.js')}}"></script>
+		
+		<script src="{{asset('public/global_assets/js/demo_pages/form_floating_labels.js')}}"></script>
 	<!-- /theme JS files -->
 

@@ -73,14 +73,6 @@
 						</span>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="" class="nav-link ">
-						<i class="icon-home4"></i>
-						<span>
-							Forms
-						</span>
-					</a>
-				</li>
 
 				<li class="nav-item">
 					<a href="{{route('news')}}" class="nav-link ">
