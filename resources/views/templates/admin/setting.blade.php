@@ -104,7 +104,8 @@ input:checked + .slider:before {
 
 	<div class="col-lg-9">
 
-		<form method="post" action="">
+		<form method="post" action="{{route('save-settings')}}" enctype="multipart/form-data">
+			@csrf
 			<div class="tab-content" style="width: 100%">
 
 

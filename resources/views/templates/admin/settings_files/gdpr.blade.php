@@ -1,3 +1,14 @@
+<?php
+$enable_cookie_notice = '';
+
+foreach ($setting as $key => $value) {
+
+ if($value->key_term=='enable_cookie_notice'){
+        $enable_cookie_notice = $value->value;
+    }
+}
+
+?>
 <h2>GDPR</h2>
 <h6>Configure settings related to EU General Data Protection Regulation.
 
@@ -7,7 +18,7 @@
  <div class="form-group col-md-12">
                                 <label class="col-md-12" >Enable Cookie Notice</label>
                                 <label class="switch">
-                                  <input type="checkbox" name="enable_cookie_notice" checked>
+                                  <input type="checkbox" name="enable_cookie_notice" <?php if($enable_cookie_notice=='yes') echo "checked" ?>>
                                   <span class="slider round"></span>
                                 </label>
                                 <div class="clearfix"></div>

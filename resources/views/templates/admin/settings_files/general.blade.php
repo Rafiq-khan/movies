@@ -1,5 +1,30 @@
+<?php
+$site_url = '';
+$site_homepage= '';
+$site_theme= '';
+$theme_change= '';
 
-								
+foreach ($setting as $key => $value) {
+
+    if($value->key_term=='site_url'){
+        $site_url = $value->value;
+    }
+
+    if($value->key_term=='site_homepage'){
+        $site_homepage = $value->value;
+    }
+
+    if($value->key_term=='site_theme'){
+        $site_theme = $value->value;
+    }
+
+    if($value->key_term=='theme_change'){
+        $theme_change = $value->value;
+    }
+        
+}
+?>
+
 								
 								<h2>General</h2>
 								<h6>Configure general site settings.</h6>
@@ -8,19 +33,19 @@
 
 									<div class="form-group col-md-12">
 	                                    <label for="exampleInputEmail1">Site Url</label>
-	                                    <input type="text" name="site_url" required class="form-control" id="exampleInputEmail1" placeholder="Site Url" value="{{isset($add_video)?$add_video->name:''}}">
+	                                    <input type="text" name="site_url" required class="form-control" id="exampleInputEmail1" placeholder="Site Url" value="{{$site_url}}">
 	                                </div>
 
 
 	                                 <div class="form-group col-md-12">
                                     <label for="exampleInputEmail1">Site Homepage</label>
                                     <select name="site_homepage" required class="form-control" id="exampleInputEmail1">
-                                        @if(isset($add_video))
+                                        @if(isset($setting))
 
 
-                                        <option value="embed"> <?php if($add_video->type=='embed') echo "selected"; ?>Embed</option>
-                                        <option value="direct_video" <?php if($add_video->type=='direct_video') echo "selected"; ?>>Direct Video ( .mp4, .webm, .avi, .mov etc.)</option>
-                                        <option value="adaptive_stream" <?php if($add_video->type=='adaptive_stream') echo "selected"; ?>>Adaptive Stream ( hls ,dash )</option>
+                                        <option value="default" <?php if($site_homepage=='embed') echo "selected"; ?>>Default</option>
+                                        <option value="application_page" <?php if($site_homepage=='direct_video') echo "selected"; ?>>Application Page</option>
+                                        <option value="custom_page" <?php if($site_homepage=='adaptive_stream') echo "selected"; ?>>Custom Page</option>
                                        
 
 
@@ -39,11 +64,11 @@
 								<div class="form-group col-md-12">
                                     <label for="exampleInputEmail1">Default Site Theme</label>
                                     <select name="site_theme" required class="form-control" id="exampleInputEmail1">
-                                        @if(isset($add_video))
+                                        @if(isset($setting))
 
 
-                                        <option value="embed"> <?php if($add_video->type=='embed') echo "selected"; ?>Embed</option>
-                                        <option value="direct_video" <?php if($add_video->type=='direct_video') echo "selected"; ?>>Direct Video ( .mp4, .webm, .avi, .mov etc.)</option>
+                                        <option value="light" <?php if($site_theme=='light') echo "selected"; ?> > Light</option>
+                                        <option value="dark" <?php if($site_theme=='dark') echo "selected"; ?>>Dark</option>
                                        
                                         @else
                                         <option value="light" >Light</option>
@@ -59,7 +84,7 @@
                                 <div class="form-group col-md-12">
                                 <label class="col-md-12" >Allow Theme Change</label>
                                 <label class="switch">
-                                  <input type="checkbox" name="theme_change" checked>
+                                  <input type="checkbox" name="theme_change" <?php if($theme_change=='yes') echo "checked" ?>>
                                   <span class="slider round"></span>
                                 </label>
                                 <div class="clearfix"></div>

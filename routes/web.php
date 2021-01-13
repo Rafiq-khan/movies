@@ -65,7 +65,7 @@ Route::get('video.delete/{id}', 'VideoController@deletevideo')->name('video.dele
 Route::post('updatevideo', 'VideoController@updatevideo')->name('updatevideo');
 
 
-
+Route::post('save-settings', 'SettingController@save_settings')->name('save-settings');
 
 
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\AdminSetting;
-use App\Models\SettingForm;
-use App\Models\AdminSettingVlaue;
 
 use Illuminate\Http\Request;
 
@@ -17,7 +15,6 @@ class SettingController extends Controller
 	}
     public function settings(){
 
-        $form=SettingForm::all();
     	$array = [];
 
     	array_push($array, 'General');
@@ -36,18 +33,71 @@ class SettingController extends Controller
     	array_push($array, 'GDRP'); 
     	array_push($array, 'Menus'); 
     	array_push($array, 'SEO');
-    	array_push($array, 'Themes');     	
+    	array_push($array, 'Themes');
 
-/*        foreach($array as $arr){
+        $setting=AdminSetting::all();     	
+    	return view('templates.admin.setting',compact('array','setting'));
+    }
 
-            $new = New AdminSetting();
-            $new->name = $arr;
-            $new->url = strtolower($arr);
-            $new->save();
+
+
+    public function save_settings(Request $r){
+
+
+
+
+
+        $inputs = $r->all();
+        foreach($inputs as $key => $all){
+                if($key!=='id' && $key!=='_token' && $key!=='submit'){
+                $field=AdminSetting::where('key_term',$key)->first();
+                if(empty($field)){
+                    AdminSetting::insert(['key_term'=>$key]);
+                    AdminSetting::where('key_term',$key)->update(['value' => $all]);
+                }else{
+                    AdminSetting::where('key_term',$key)->update(['value' => $all]);            
+                }    
+
+
+
+
+
+                 if ($r->hasFile($key)) 
+                            {
+
+                            $destinationPath = public_path()."/images/front";
+                            $extension =  $r->file($key)->getClientOriginalExtension();
+                            $fileName = time();
+                            $fileName .= rand(11111,99999).'.'.$extension; // renaming image
+                            if(!$r->file($key)->move($destinationPath,$fileName))
+                            {
+                                throw new \Exception("Failed Upload");                    
+                            }
+
+                            $picture = asset("/public/images")."/".$fileName;
+
+                                 $field=AdminSetting::where('key_term',$key)->first();
+                                                if(empty($field)){
+                                                    AdminSetting::insert(['key_term'=>$key]);
+                                                    AdminSetting::where('key_term',$key)->update(['value' => $picture]);
+                                                }else{
+                                                    AdminSetting::where('key_term',$key)->update(['value' => $picture]);            
+                                                }   
+
+                        }
+
+
+
+            }
 
         }
-*/
+        //alert()->success('Updated');
+        return redirect()->back();
 
-    	return view('templates.admin.setting',compact('array','form'));
+
+    
+
+
     }
+
 }
